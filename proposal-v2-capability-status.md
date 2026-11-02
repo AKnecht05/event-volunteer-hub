@@ -26,7 +26,7 @@ Capabilities are grouped by status:
 - **Volunteer registration.** Users can mark themselves as "attending" an event. There are no shifts, no approval step, and no capacity limit.
 - **Browsing events.** There is a list of events sorted by date and split across pages. There is no filtering, search, or calendar view.
 - **Update notifications.** A site-wide activity feed shows actions such as "created a new event" (`actions/`). It shows every user's activity instead of only updates relevant to each user, and it can be viewed without logging in.
-- **Relational database.** PostgreSQL is used when it is configured, and SQLite is used by default (`config/settings.py`). The database has no tables for organizations, shifts, or attendance.
+- **Relational database.** PostgreSQL is used when it is configured, and SQLite is used by default (`config/settings.py`). There is no explicit attendance/check-in record model. The existing event-attendance relationship records intended participation but does not represent actual check-in, attendance status, or service hours.
 - **Security.** Django provides password hashing and CSRF protection, and the ORM uses parameterized queries. The HTTPS cookie settings are not turned on, and the "attend" button changes data through a plain link (a GET request) instead of a form submission.
 - **Minimal data collection and privacy.** The application collects only name, email, an optional date of birth, and an optional photo. However, any signed-in user can view any other user's profile, and photos are stored with a third-party service (Cloudinary).
 - **Responsive design.** Pages use Bootstrap 4 and are set up for mobile screens. The event description editor has a fixed width of 970 pixels, which is wider than a phone screen.
